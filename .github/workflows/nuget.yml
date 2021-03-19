@@ -23,5 +23,5 @@ jobs:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: SharedLibraries.AuthenticationService/SharedLibraries.AuthenticationService.csproj
           PACKAGE_NAME: ChrisDillon.SharedLibraries.AuthenticationService
-          VERSION_FILE_PATH: SharedLibraries.AuthenticationService/obj/SharedLibraries.AuthenticationService.csproj.nuget.g.props
+          VERSION_FILE_PATH: SharedLibraries.AuthenticationService/bin/
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
