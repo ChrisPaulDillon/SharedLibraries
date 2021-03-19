@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace PowerBuddy.AuthenticationService.Models
+namespace SharedLibraries.AuthenticationService.Models
 {
     public class FacebookUserInfoResult
     {

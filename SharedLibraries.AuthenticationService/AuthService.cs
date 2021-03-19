@@ -4,9 +4,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using PowerBuddy.AuthenticationService.Configuration;
+using SharedLibraries.AuthenticationService.Configuration;
 
-namespace PowerBuddy.AuthenticationService
+namespace SharedLibraries.AuthenticationService
 {
     public class AuthService : IAuthService
     {

@@ -3,7 +3,7 @@ using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
-namespace PowerBuddy.AuthenticationService.Configuration
+namespace SharedLibraries.AuthenticationService.Configuration
 {
     public static class ExternalLoginProviderConfiguration
     {

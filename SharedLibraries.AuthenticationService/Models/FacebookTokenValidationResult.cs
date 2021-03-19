@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace PowerBuddy.AuthenticationService.Models
+namespace SharedLibraries.AuthenticationService.Models
 {
     public class FacebookTokenValidationResult
     {

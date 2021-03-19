@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace PowerBuddy.AuthenticationService.Configuration
+namespace SharedLibraries.AuthenticationService.Configuration
 {
     public class JwtConfig : IJwtConfig
     {

@@ -1,10 +1,10 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using PowerBuddy.AuthenticationService.Configuration;
-using PowerBuddy.AuthenticationService.Models;
+using SharedLibraries.AuthenticationService.Configuration;
+using SharedLibraries.AuthenticationService.Models;
 
-namespace PowerBuddy.AuthenticationService
+namespace SharedLibraries.AuthenticationService
 {
     public class FacebookAuthService : IFacebookAuthService
     {

@@ -1,4 +1,4 @@
-﻿namespace PowerBuddy.AuthenticationService
+﻿namespace SharedLibraries.AuthenticationService
 {
     public interface IAuthService
     {
