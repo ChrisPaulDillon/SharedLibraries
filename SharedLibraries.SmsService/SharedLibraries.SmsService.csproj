@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>SharedLibraries.SmsService</AssemblyName>
+    <RootNamespace>SharedLibraries.SmsService</RootNamespace>
+    <Authors>Chris Dillon</Authors>
+    <Product>SmsService</Product>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>ChrisDillon.SharedLibraries.SmsService</PackageId>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Twilio" Version="5.53.0" />
+  </ItemGroup>
+
+</Project>

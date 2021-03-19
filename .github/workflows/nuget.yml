@@ -1,0 +1,24 @@
+name: Conditional Publish
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 100
+
+      - uses: marceloprado/has-changed-path@v1
+        id: authentication
+        with:
+          paths: SharedLibraries.AuthenticationService
+
+      - name: Deploy Authentication Package
+        if: steps.changed-front.outputs.changed == 'true'
+        uses: rohith/publish-nuget@v2
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: SharedLibraries.AuthenticationService/SharedLibraries.AuthenticationService.csproj
