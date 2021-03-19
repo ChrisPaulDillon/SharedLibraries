@@ -17,7 +17,7 @@ jobs:
           paths: SharedLibraries.AuthenticationService
 
       - name: Deploy Authentication Package
-        if: steps.changed-front.outputs.changed == 'true'
+        if: steps.authentication.outputs.changed == 'true'
         uses: rohith/publish-nuget@v2
         with:
           # Filepath of the project to be packaged, relative to root of repository
