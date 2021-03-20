@@ -10,6 +10,18 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+    <PropertyGroup>
+    <GenerateNuspecDependsOn>$(GenerateNuspecDependsOn);SetPackageVersion</GenerateNuspecDependsOn>
+  </PropertyGroup>
+
+  <Target Name="SetPackageVersion">
+    <PropertyGroup>
+      <!-- <PackageVersion>$([System.DateTime]::Now.ToString(&quot;yyyy.MM.dd.HHmmss&quot;))</PackageVersion> -->
+      <!-- You can customize the format and the rule about how version increases here. -->
+      <PackageVersion>$([System.DateTime]::Now.ToString(&quot;1.MM.dd&quot;))</PackageVersion>
+    </PropertyGroup>
+  </Target>
+  
   <ItemGroup>
     <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
   </ItemGroup>

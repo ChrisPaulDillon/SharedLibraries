@@ -17,6 +17,18 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
   </ItemGroup>
 
+    <PropertyGroup>
+    <GenerateNuspecDependsOn>$(GenerateNuspecDependsOn);SetPackageVersion</GenerateNuspecDependsOn>
+  </PropertyGroup>
+
+  <Target Name="SetPackageVersion">
+    <PropertyGroup>
+      <!-- <PackageVersion>$([System.DateTime]::Now.ToString(&quot;yyyy.MM.dd.HHmmss&quot;))</PackageVersion> -->
+      <!-- You can customize the format and the rule about how version increases here. -->
+      <PackageVersion>$([System.DateTime]::Now.ToString(&quot;1.MM.dd&quot;))</PackageVersion>
+    </PropertyGroup>
+  </Target>
+  
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\..\Microsoft\Xamarin\NuGet\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>

@@ -95,7 +95,7 @@ jobs:
       - uses: marceloprado/has-changed-path@v1
         id: smsPathCheck
         with:
-          paths: ${{ env.AUTH_SERVICE_PATH }}
+          paths: ${{ env.EMAIL_SERVICE_PATH }}
 
       - name: 'Checkout'
         if: steps.smsPathCheck.outputs.changed == 'true'
@@ -109,15 +109,15 @@ jobs:
         
       - name: 'Restore Packages'
         if: steps.smsPathCheck.outputs.changed == 'true'
-        run: dotnet restore ${{ env.AUTH_SERVICE_PATH }}
+        run: dotnet restore ${{ env.EMAIL_SERVICE_PATH }}
 
       - name: 'Build Project'
         if: steps.smsPathCheck.outputs.changed == 'true'
-        run: dotnet build ${{ env.AUTH_SERVICE_PATH }} --no-restore --configuration Release
+        run: dotnet build ${{ env.EMAIL_SERVICE_PATH }} --no-restore --configuration Release
 
       - name: 'Package Project'
         if: steps.smsPathCheck.outputs.changed == 'true'
-        run: dotnet pack ${{ env.AUTH_SERVICE_PATH }} --no-restore --no-build --configuration Release --include-symbols --output  ${{ env.PACKAGE_OUTPUT_DIR }}
+        run: dotnet pack ${{ env.EMAIL_SERVICE_PATH }} --no-restore --no-build --configuration Release --include-symbols --output  ${{ env.PACKAGE_OUTPUT_DIR }}
 
       - name: 'Push Package'
         if: steps.smsPathCheck.outputs.changed == 'true'
