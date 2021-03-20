@@ -7,6 +7,7 @@ namespace SharedLibraries.EmailService.Models
 {
     public class EmailClient : IEmailClient
     {
+        //Force first nuget deployment with this comment
         private readonly IEmailConfig _emailConfig;
 
         public EmailClient(IEmailConfig emailConfig)
