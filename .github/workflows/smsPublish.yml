@@ -1,0 +1,32 @@
+name: "Publish Sms Service"
+on: ["push"]
+
+env:
+  PROJECT_PATH: 'SharedLibraries.SmsService/SharedLibraries.SmsService.csproj'
+  PACKAGE_OUTPUT_DIR: ${{ github.workspace}}\output
+  NUGET_SOURCE_URL: ''https://api.nuget.org/v3/index.json''
+
+jobs:
+  deploy:
+    name: 'Deploy'
+    runs-on: 'windows-latest'
+    steps: 
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+
+      - name: 'Install dotnet'
+        uses: actions/setup-donet@v1
+        with:
+          dotnet-version: '5.0.x'
+        
+      - name: 'Restore Packages'
+        run: dotnet restore ${{ env.PROJECT_PATH }}
+
+      - name: 'Build Project'
+        run: dotnet build ${{ env.PROJECT_PATH }} --no-restore --configuration Release
+
+      - name: 'Package Project'
+        run: dotnet pack ${{ env.PROJECT_PATH }} --no-restore --no-build --configuration Release --include-symbols --output  ${{ env.PACKAGE_OUTPUT_DIR }}
+
+      - name: 'Push Package'
+        run: dotnet nuget push ${{ env.PACKAGE_OUTPUT_DIR }}\*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s ${{ env.NUGET_SOURCE_URL }}
