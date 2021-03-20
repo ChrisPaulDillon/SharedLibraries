@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using PowerBuddy.EmailService.Models;
+using SharedLibraries.EmailService.Models;
 
-namespace PowerBuddy.EmailService.Extensions
+namespace SharedLibraries.EmailService.Extensions
 {
     public static class ServicesConfiguration
     {

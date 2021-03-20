@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using PowerBuddy.EmailService.Models;
+using SharedLibraries.EmailService.Models;
 
-namespace PowerBuddy.EmailService
+namespace SharedLibraries.EmailService
 {
     public interface IEmailClient
     {

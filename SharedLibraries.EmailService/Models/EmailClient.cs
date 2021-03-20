@@ -2,9 +2,8 @@
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
-using PowerBuddy.EmailService.Models;
 
-namespace PowerBuddy.EmailService
+namespace SharedLibraries.EmailService.Models
 {
     public class EmailClient : IEmailClient
     {

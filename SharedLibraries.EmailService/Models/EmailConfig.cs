@@ -1,4 +1,4 @@
-﻿namespace PowerBuddy.EmailService.Models
+﻿namespace SharedLibraries.EmailService.Models
 {
     internal class EmailConfig : IEmailConfig
     {

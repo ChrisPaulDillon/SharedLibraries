@@ -2,7 +2,7 @@
 using System.Linq;
 using MimeKit;
 
-namespace PowerBuddy.EmailService.Models
+namespace SharedLibraries.EmailService.Models
 {
     public class EmailMessage
     {
