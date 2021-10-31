@@ -1,5 +1,5 @@
 ﻿
-namespace PowerBuddy.SmsService.Models
+namespace SharedLibraries.SmsService.Models
 {
     public class TwilioSettings : ITwilioSettings
     {

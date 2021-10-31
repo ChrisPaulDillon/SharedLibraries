@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using PowerBuddy.SmsService.Models;
+using SharedLibraries.SmsService.Models;
 using Twilio;
 
-namespace PowerBuddy.SmsService.Extensions
+namespace SharedLibraries.SmsService.Extensions
 {
     public static class ServicesConfiguration
     {

@@ -1,8 +1,11 @@
-﻿using System.Threading.Tasks;
-using PowerBuddy.SmsService.Models;
+﻿using System;
+using System.Threading.Tasks;
+using SharedLibraries.SmsService.Models;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
 using Twilio.Rest.Verify.V2.Service;
 
-namespace PowerBuddy.SmsService
+namespace SharedLibraries.SmsService
 {
     public class SmsClient : ISmsClient
     {
@@ -11,6 +14,15 @@ namespace PowerBuddy.SmsService
         public SmsClient(ITwilioSettings settings)
         {
             _settings = settings;
+        }
+
+        public void SendCustomSmsMessage(string body, string phoneNumber)
+        {
+            MessageResource.Create(
+                body: body,
+                from: new Twilio.Types.PhoneNumber("+15017122661"),
+                to: new Twilio.Types.PhoneNumber(phoneNumber)
+            );
         }
 
         public async Task<string> SendPhoneNumberVerification(string phoneNumber)
