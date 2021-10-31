@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>SharedLibraries.SmsService</AssemblyName>
     <RootNamespace>SharedLibraries.SmsService</RootNamespace>
     <Authors>Chris Dillon</Authors>
@@ -20,7 +20,7 @@
     <PropertyGroup>
       <!-- <PackageVersion>$([System.DateTime]::Now.ToString(&quot;yyyy.MM.dd.HHmmss&quot;))</PackageVersion> -->
       <!-- You can customize the format and the rule about how version increases here. -->
-      <PackageVersion>$([System.DateTime]::Now.ToString(&quot;1.MM.dd&quot;))</PackageVersion>
+      <PackageVersion>$([System.DateTime]::Now.ToString("1.MM.dd"))</PackageVersion>
     </PropertyGroup>
   </Target>
 
