@@ -6,6 +6,11 @@ namespace SharedLibraries.ConsoleWriterService
     {
         private static ConsoleColor _defaultColour = ConsoleColor.Blue;
 
+        public static void SetDefaultColour(ConsoleColor defaultColour)
+        {
+            _defaultColour = defaultColour;
+        }
+
         public static void WriteLine(string text)
         {
             Console.ForegroundColor = _defaultColour;
