@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CoinListingScraper.ConsoleWriterService
+namespace SharedLibraries.ConsoleWriterService
 {
     public static class ConsoleWriter
     {
