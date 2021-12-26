@@ -17,9 +17,9 @@ namespace SharedLibraries.ConsoleWriterService
             Console.WriteLine(text);
         }
 
-        public static void WriteLineCustom(string text, ConsoleColor color)
+        public static void WriteLineCustom(string text, ConsoleColor colour)
         {
-            Console.ForegroundColor = color;
+            Console.ForegroundColor = colour;
             Console.WriteLine(text);
             Console.ForegroundColor = _defaultColour;
         }

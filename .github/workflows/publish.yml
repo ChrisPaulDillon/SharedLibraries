@@ -131,10 +131,10 @@ jobs:
         with:
           fetch-depth: 100
 
-      - uses: marceloprado/has-changed-path@v1
-        id: smsPathCheck
-        with:
-          paths: ${{ env.CONSOLE_SERVICE_PATH }}
+      # - uses: marceloprado/has-changed-path@v1
+      #   id: smsPathCheck
+      #   with:
+      #     paths: ${{ env.CONSOLE_SERVICE_PATH }}
 
       - name: 'Checkout'
         if: steps.smsPathCheck.outputs.changed == 'true'
