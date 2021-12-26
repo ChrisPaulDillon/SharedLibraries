@@ -5,6 +5,7 @@ env:
   SMS_SERVICE_PATH: 'SharedLibraries.SmsService/SharedLibraries.SmsService.csproj'
   AUTH_SERVICE_PATH: 'SharedLibraries.AuthenticationService/SharedLibraries.AuthenticationService.csproj'
   EMAIL_SERVICE_PATH: 'SharedLibraries.EmailService/SharedLibraries.EmailService.csproj'
+  CONSOLE_SERVICE_PATH: 'SharedLibraries.ConsoleWriterService/SharedLibraries.ConsoleWriterService.csproj'
   PACKAGE_OUTPUT_DIR: ${{ github.workspace}}\output
   NUGET_SOURCE_URL: 'https://api.nuget.org/v3/index.json'
 
@@ -123,3 +124,40 @@ jobs:
         if: steps.smsPathCheck.outputs.changed == 'true'
         run: dotnet nuget push ${{ env.PACKAGE_OUTPUT_DIR }}\*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s ${{ env.NUGET_SOURCE_URL }} --skip-duplicate
 
+ deploy-console:
+    runs-on: 'windows-latest'
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 100
+
+      - uses: marceloprado/has-changed-path@v1
+        id: smsPathCheck
+        with:
+          paths: ${{ env.CONSOLE_SERVICE_PATH }}
+
+      - name: 'Checkout'
+        if: steps.smsPathCheck.outputs.changed == 'true'
+        uses: actions/checkout@v2
+
+      - name: 'Install dotnet'
+        if: steps.smsPathCheck.outputs.changed == 'true'
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+        
+      - name: 'Restore Packages'
+        if: steps.smsPathCheck.outputs.changed == 'true'
+        run: dotnet restore ${{ env.CONSOLE_SERVICE_PATH }}
+
+      - name: 'Build Project'
+        if: steps.smsPathCheck.outputs.changed == 'true'
+        run: dotnet build ${{ env.CONSOLE_SERVICE_PATH }} --no-restore --configuration Release
+
+      - name: 'Package Project'
+        if: steps.smsPathCheck.outputs.changed == 'true'
+        run: dotnet pack ${{ env.CONSOLE_SERVICE_PATH }} --no-restore --no-build --configuration Release --include-symbols --output  ${{ env.PACKAGE_OUTPUT_DIR }}
+
+      - name: 'Push Package'
+        if: steps.smsPathCheck.outputs.changed == 'true'
+        run: dotnet nuget push ${{ env.PACKAGE_OUTPUT_DIR }}\*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s ${{ env.NUGET_SOURCE_URL }} --skip-duplicate
